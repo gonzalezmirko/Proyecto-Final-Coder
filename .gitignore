@@ -1,0 +1,4 @@
+/__pysache__/
+*.pyc
+Pipfile
+Pipfile.lock
