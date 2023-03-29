@@ -1,3 +1,5 @@
 from django.contrib import admin
+from core.models import Mueble
 
-# Register your models here.
+# Registra tus modelos.
+admin.site.register(Mueble)
