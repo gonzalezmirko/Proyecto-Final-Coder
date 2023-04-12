@@ -9,7 +9,7 @@
 <br>
 <br>
 <br>
-
+{% if perms.core %}
 <div class="container text-center">
     <h1>Listado de muebles:</h1>
 </div>
@@ -19,7 +19,6 @@
         <br>
         <br>
         <ul>
-            {% if perms.core %}
             {% for Mueble in object_list %}
                 <li>ID: {{Mueble.id}}</li>
                 <li>Nombre: {{Mueble.nombre}}</li>
@@ -33,11 +32,10 @@
                 </p>
                 <br>
             {% endfor %}
-            {% endif %}
         </ul>
     </div>
 </div>
-
+{% endif %}
 <section id="new-arrivals" class="new-arrivals">
     <div class="container">
         <div class="section-header">
