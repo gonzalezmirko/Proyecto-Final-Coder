@@ -1,0 +1,56 @@
+{% extends 'core/padre.html' %}
+{% load static %}
+{% block Titulo %}
+    <title>Acerda de Mi</title>
+{% endblock%}
+{% block contenidoCambia %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<footer id="footer"  class="footer">
+    <div class="container">
+       <div class="row g-4">
+           <div class="col-md-12 col-lg-10">
+               <div class="card bg-success">
+                    <div class="card-body text-center">
+                        <h2 class="text-center text-dark">
+                            Acerca de Mi
+                        </h2>
+                        <img src="{% static 'core/images/media/perfil.jpg' %}" alt="feature image" class="rounded-circle mb-3" width="150px">
+                        <h3 class="card-title mb-3">Mirko Gonzalez</h3>
+                        <p class="cardfoo-text">Sigueme en: <a href="https://github.com/gonzalezmirko" style="color:#e99c2e"><i class="fa fa-github"></i>github</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card bg-success">
+                 <div class="card-body text-center">
+                    <li style="color:#e99c2e"></li>
+                    <h5>Holaaa! Mi nombre es Mirko y trabajo en una fabrica textil ,ayudante en el taller de mantenimiento.</h5> 
+                    <h5>Actualmente estoy aprendiendo el lenguaje de programación Python y el Framework Django.</h5>
+                    <h5>Ademas estoy en segundo año en Analista en Tecnologías de la Información y la Comunicación en la Facultad de Informatica UNLP.</h5>
+                    <h5>Gracias por visitar mi página y no dejes de seguirme en mis redes sociales :)</h5>
+                    <li style="color:#e99c2e"></li>
+                 </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

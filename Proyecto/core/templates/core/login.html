@@ -1,0 +1,58 @@
+{% extends 'core/padre.html' %}
+{% load static %}
+{% block Titulo %}
+    <title>Inicio de Sesion</title>
+{% endblock%}
+{% block contenidoCambia %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    <h1>Iniciar Sesión</h1>
+</div>
+
+<div class="container text-center">
+    
+        <div class="container">
+            <div class="text-center">
+                <form id="login-form" style=" width: 50vw; margin-left : 15vw;" method="post">
+                    {% csrf_token %}
+                    <table class="table">
+                        <tr>
+                            <td><label for="id_username">Usuario</label></td>
+                            <td><input id="id_username" name="username" 
+                                       type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_password">Contraseña</label></td>
+                            <td><input id="id_password" name="password" 
+                                       type="password" class="form-control"></td>
+                        </tr>
+                        {% if form.errors %}
+                        <div class="label label-danger">
+                            Tu usuario y contraseña no coinciden 
+                            Intenta nuevamente.
+                        </div>
+                        {% endif %}
+                    </table>
+    
+                    <input type="submit" value="Iniciar Sesion" 
+                           class="btn btn-warning pull-right" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    <p>Aun no tienes cuenta? <a href="{% url 'Register' %}" class="btn btn-warning">Regístrate</a></p>
+                </form>
+            </div>
+        </div>
+        <br>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

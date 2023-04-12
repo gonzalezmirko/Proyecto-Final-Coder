@@ -1,0 +1,37 @@
+{% extends 'core/padre.html' %}
+{% load static %}
+{% block Titulo %}
+    <title>Detalle Mueble</title>
+{% endblock%}
+{% block contenidoCambia %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    <h1>Detalles del mueble:</h1>
+</div>
+<div class="container">
+    <div class="text-center">
+        <p>Nombre del mueble:<i> {{mueble.nombre}}</i></p>
+        <p>Modelo del mueble:<i> {{mueble.modelo}}</i></p>
+        <p>Descripcion del mueble:<i> {{mueble.descripcion}}</i></p>
+        <p>Precio del mueble:<i> {{mueble.precio}}</i></p>
+        <p>Imagen del mueble:
+            <div class="center">
+                <img src="{{mueble.imagen.url}}" alt="new-arrivals images">
+            </div>
+        <p>
+            <a href="{% url 'productos'%}" class="btn btn-warning">Regresar</a>
+        </p>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

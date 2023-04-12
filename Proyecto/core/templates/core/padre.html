@@ -1,0 +1,300 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	{% load static %}
+    <head>
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+        
+        <!-- title of site -->
+		{% block Titulo %}
+        <title>Lustres RyD</title>
+		{% endblock%}
+
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="{% static 'core/logo/logo.png' %}"/>
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="{% static 'core/css/font-awesome.min.css' %}">
+
+        <!--linear icon css-->
+		<link rel="stylesheet" href="{% static 'core/css/linearicons.css' %}">
+
+		<!--animate.css-->
+        <link rel="stylesheet" href="{% static 'core/css/animate.css' %}">
+
+        <!--owl.carousel.css-->
+        <link rel="stylesheet" href="{% static 'core/css/owl.carousel.min.css' %}">
+		<link rel="stylesheet" href="{% static 'core/css/owl.theme.default.min.css' %}">
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="{% static 'core/css/bootsnav.css' %}" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="{% static 'core/css/responsive.css' %}">
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+	
+	<body style="text-transform:none">
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+		
+		
+		<!--Empieza el Inicio -->
+		<header id="home" class="welcome-hero">
+			<!-- Area de Encabezado -->
+			<div class="top-area">
+				<div class="header-area">
+					<!-- Start Navigation -->
+				    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+				        <!-- Area de busqueda -->
+				        <div class="top-search">
+				            <div class="container">
+				                <div class="input-group">
+				                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+				                    <input type="text" class="form-control" placeholder="Search">
+				                    <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+				                </div>
+				            </div>
+				        </div>
+				        <!-- Termina Area de busqueda -->
+
+				        <div class="container">            
+				            <!-- Atributos de navegacion -->
+
+				            <!-- Termina Atributos de navegacion -->
+
+				            <!-- Encabezado de navegacion -->
+				            <div class="navbar-header">
+				                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+				                    <i class="fa fa-bars"></i>
+				                </button>
+				                <a class="navbar-brand" href="{% url 'inicio'%}"><span>|</span>Lustres<span>RyD</span>|</a>
+
+				            </div><!--/.navbar-header-->
+				            <!-- Termina Encabezado de navegacion -->
+
+				            <!-- Barra de navegacion -->
+				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+				                <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
+				                    <li class="scroll active"><a href="#home">Inicio</a></li>
+                                    {% if request.user.is_authenticated %}
+				                    <li class=""><a href="{% url 'productos' %}">Productos</a></li>
+                                    {% endif %}
+				                    <li class="scroll"><a href="#contacto">Contacto</a></li>
+										<div class="attr-nav">
+											<ul>
+												{% if request.user.is_authenticated %}
+												<!--CARRITO-->
+												{% include "core/carrito.html"%}
+												<!--CONFIGURACION-->
+												<li class="dropdown">
+				                        			<a href="#" class="dropdown-toggle" data-toggle="dropdown" ><span class="lnr lnr-cog"></span>
+				                        			</a>
+				                        			<ul class="dropdown-menu cart-list s-cate">
+														<!--Hola USUARIO-->
+														<li class="text-muted small mb-10 mb-lg-0"><a style="color:#e99c2e">Hola, {{user.username}} !</a></li>
+														<!--Editar Perfil-->
+														<li class="single-cart-list">
+															<div class="cart-list-txt">
+																<h6><a href="{% url 'EditarPerfil'%}">Editar Perfil</a></h6>
+															</div>
+														</li>
+														<!--Cerrar Sesion-->
+														<li class="single-cart-list">
+															<div class="cart-list-txt">
+																<h6><a href="{% url 'Logout'%}">Cerrar sesion</a></h6>
+															</div>
+														</li>
+													</ul>
+												</li>
+												{% endif %}
+											</ul>
+										</div>
+				                </ul><!--/.nav -->
+				            </div><!-- Termina Barra de navegacion -->
+				        </div><!--/.container-->
+				    </nav><!--/nav-->
+				    <!-- Termina la navegacion -->
+				</div><!--/.header-area-->
+			</div><!-- /.top-area-->
+			<!-- top-area End -->
+
+		</header><!--/.welcome-hero-->
+		<!--Termina el Inicio -->
+		{% block contenidoCambia %}
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<section id="" class="text-dark p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+			<div class="container text-center">
+			  <div class="">
+				  <div>
+					  <h1>Bienvenido (a) a la <span class="text-primary">Muebleria Lustres RyD</span></h1>
+				  </div>
+			  </div>
+		  </div>
+		</section>
+		<section class="p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+			<div class="container">
+				<div class="">
+					<div class="text-center">
+						<p class="lead my-4">
+							<h6>Quieres comprar o mirar un mueble?</h6>
+						</p>
+						<p class="lead my-4">
+							<h6>Primero debes Iniciar Sesion ó Registrarse en caso de no estarlo:</h6>
+						</p>
+						<br>
+						<a href="{% url 'Login' %}"><button type="submit" class="btn btn-warning">Iniciar Sesion</button></a>
+						<a href="{% url 'Register'%}"><button type="submit" class="btn btn-warning">Registrarse</button></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		{% endblock %}
+
+		<!--Empieza Contacto -->
+		<section id="contacto"  class="contacto">
+			<div class="container">
+				<div class="hm-footer-details">
+					<div class="row">
+						<div class=" col-md-3 col-sm-6 col-xs-12">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title">
+									<h4>Informacion</h4>
+								</div><!--/.hm-foot-title-->
+								<div class="hm-foot-menu">
+									<ul>
+										<li><a href="{% url 'acercaDM' %}">Acerca de mi</a></li><!--/li-->
+										<li><a href="{% url 'contacto' %}">Nuestro contacto</a></li><!--/li-->
+									</ul><!--/ul-->
+								</div><!--/.hm-foot-menu-->
+							</div><!--/.hm-footer-widget-->
+						</div><!--/.col-->
+						<div class=" col-md-3 col-sm-6 col-xs-12">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title">
+									<h4>Mi Cuenta</h4>
+								</div><!--/.hm-foot-title-->
+								<div class="hm-foot-menu">
+									<ul>
+										{% if request.user.is_authenticated %}
+										<li><a href="{% url 'EditarPerfil' %}">Perfil</a></li><!--/li-->
+										<li><a href="{% url 'Logout'%}">Cerrar sesion</a></li>
+										{% else %}
+										<li><a href="{% url 'Login' %}">Iniciar Sesion</a></li><!--/li-->
+										<li><a href="{% url 'Register'%}">Registrarse</a></li><!--/li-->
+										{% endif %}
+									</ul><!--/ul-->
+								</div><!--/.hm-foot-menu-->
+							</div><!--/.hm-footer-widget-->
+						</div><!--/.col-->
+						<div class=" col-md-3 col-sm-4  col-xs-12">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title">
+									<h4>Suscripcion</h4>
+								</div><!--/.hm-foot-title-->
+								<div class="hm-foot-para">
+									<p>
+										Suscribite para recibir todas las noticias de nosotros via email.
+									</p>
+								</div><!--/.hm-foot-para-->
+								<div class="hm-foot-email">
+									<div class="foot-email-box">
+										<input type="text" class="form-control" placeholder="Ingresa tu email aca ...">
+									</div><!--/.foot-email-box-->
+									<div class="foot-email-subscribe">
+										<span><i class="fa fa-location-arrow"></i></span>
+									</div><!--/.foot-email-icon-->
+								</div><!--/.hm-foot-email-->
+							</div><!--/.hm-footer-widget-->
+						</div><!--/.col-->
+					</div><!--/.row-->
+				</div><!--/.hm-footer-details-->
+
+			</div><!--/.container-->
+
+		</section><!--/newsletter-->	
+		<!--Termina Contacto-->
+		<!--Footer-->
+		<footer id="footer"  class="footer">
+			<div class="container">
+				<div class="hm-footer-copyright text-center">
+					<div class="footer-social">
+						<a href="https://www.facebook.com/lustresdemuebles.ryd"><i class="fa fa-facebook"></i></a>	
+						<a href="https://instagram.com/muebleria.511?igshid=YmMyMTA2M2Y="><i class="fa fa-instagram"></i></a>
+						<a href="https://github.com/gonzalezmirko"><i class="fa fa-github"></i></a>
+					</div>
+					<p>
+						&copy;Copyright. Todos los derechos reservados by <a href="">Mirko Gonzalez</a>
+					</p><!--/p-->
+				</div><!--Texto-centro-->
+			</div><!--Contenido-->
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--Scroll para subir arriba-->
+			
+        </footer>
+		<!--Termina Footer-->
+		
+		<!-- Incluye todos los js -->
+
+		<script src="{% static 'core/js/jquery.js' %}"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+		
+		<!-- bootsnav js -->
+		<script src="{% static 'core/js/bootsnav.js' %}"></script>
+
+		<!--owl.carousel.js-->
+        <script src="{% static 'core/js/owl.carousel.min.js' %}"></script>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		
+        
+        <!--Custom JS-->
+        <script src="{% static 'core/js/custom.js' %}"></script>
+        
+    </body>
+	
+</html>

@@ -1,0 +1,38 @@
+{% extends 'core/padre.html' %}
+{% load static %}
+{% block Titulo %}
+    <title>Agregar Mueble</title>
+{% endblock%}
+{% block contenidoCambia %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <h1 class="text-center">Agrega un nuevo Mueble</h1>
+<div class="form-group">
+<br>
+<div class="container text-center">
+    <div clas="text-center">
+        <form style=" width: 50vw; margin-left : 15vw;" method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("usuario_id").value = name;
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+

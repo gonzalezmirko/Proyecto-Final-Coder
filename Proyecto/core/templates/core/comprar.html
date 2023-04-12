@@ -1,0 +1,40 @@
+{% extends 'core/padre.html' %}
+{% load static %}
+{% block Titulo %}
+    <title>Compra</title>
+{% endblock%}
+{% block contenidoCambia %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    {% if request.session %}
+    <section class="p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container">
+            <div class="">
+                <div class="text-center">
+                    <p class="lead my-4">
+                        <h6><font style="color:#e99c2e">{{user.username}} </font>,se te enviara un mensaje al correo: <font style="color:#e99c2e">{{user.email}}</font> con las indicaciones para finalizar la compra!</h6>
+                        <br>
+                        <h6>El total de su compra es de : <font style="color:#e99c2e">$ {{total_carrito}}</font></h6>
+                        <br>
+                        <h6>Muchas gracias por la compra !!</h6>
+                        <br>
+                        <h6>Para limpiar tu carrito:</h6><a href="{% url 'Limpiar' %}" class="btn btn-danger">Limpiar</a>
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

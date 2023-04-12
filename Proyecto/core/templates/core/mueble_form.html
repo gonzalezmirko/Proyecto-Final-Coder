@@ -1,0 +1,31 @@
+{% extends 'core/padre.html' %}
+{% load static %}
+{% block Titulo %}
+    <title>Editar Mueble</title>
+{% endblock%}
+{% block contenidoCambia %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    <h1>Editar mueble:</h1>
+</div>
+<div class="container">
+    <div class="text-center">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Enviar" class="btn btn-warning"/><a href="{% url 'productos'%}" class="btn btn-warning">Regresar</a>
+        </form>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

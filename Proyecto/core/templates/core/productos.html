@@ -1,0 +1,89 @@
+{% extends 'core/padre.html' %}
+{% load static %}
+{% block Titulo %}
+    <title>Lista Mueble</title>
+{% endblock%}
+{% block contenidoCambia %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    <h1>Listado de muebles:</h1>
+</div>
+<div class="container">
+    <div class="text-center">
+        <a href="{% url 'New' %}" class="btn btn-warning">Agregar Mueble</a>
+        <br>
+        <br>
+        <ul>
+            {% if perms.core %}
+            {% for Mueble in object_list %}
+                <li>ID: {{Mueble.id}}</li>
+                <li>Nombre: {{Mueble.nombre}}</li>
+                <li>Modelo: {{Mueble.modelo}}</li>
+                <li>Descripcion: {{Mueble.descripcion}}</li>
+                <li>Precio: {{Mueble.precio}}</li>
+                <p> 
+                    <a href="{% url 'Detail' Mueble.id %}" class="btn btn-warning">Ver</a>
+                    <a href="{% url 'Edit' Mueble.id %}" class="btn btn-warning">Editar</a>
+                    <a href="{% url 'Delete' Mueble.id %}" class="btn btn-warning">Borrar</a>
+                </p>
+                <br>
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<section id="new-arrivals" class="new-arrivals">
+    <div class="container">
+        <div class="section-header">
+            <h2>Productos</h2>
+        </div><!--/.section-header-->
+        <div class="new-arrivals-content">
+            <div class="row">
+                {% for Mueble in object_list %}
+                <div class="col-md-3 col-sm-4">
+                    <div class="single-new-arrival">
+                        <div class="single-new-arrival-bg">
+                            {% if Mueble.imagen %}
+                            <img src="{{Mueble.imagen.url}}" alt="new-arrivals images">
+                            {% endif %}
+                            {% if Mueble.oferta %}
+                            <div class="single-new-arrival-bg-overlay"></div>
+                            <div class="sale bg-1">
+                                <p>Oferta</p>
+                            </div>
+                            {% endif %}
+                            <div class="new-arrival-cart">
+                                <p>
+                                    <span class="lnr lnr-cart"></span>
+                                    <a href="{% url 'Add' Mueble.id %}">Agregar <span>al </span> carrito</a>
+                                </p>
+                                <p class="arrival-review pull-right">
+                                    <span class="lnr lnr-heart"></span>
+                                    <span class="lnr lnr-frame-expand"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <h4><a href="#">{{Mueble.nombre}}</a></h4>
+                        <p class="arrival-product-price"><h4>Descripcion:</h4> {{Mueble.descripcion}}</p>
+                        <p class="arrival-product-price">{{Mueble.precio}} $</p>
+                        <a href="{% url 'Detail' Mueble.id %}" class="btn btn-warning">Ver</a>
+                    </div>
+                </div>
+                {% endfor%}
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock%}

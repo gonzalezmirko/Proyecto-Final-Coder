@@ -43,13 +43,14 @@ body{
 	font-size:16px;
 	color:#a09e9c;
 	background: #fff;
-    text-transform: capitalize;
+    text-transform: none;
     max-width:1920px;
     margin:0 auto;
 	overflow-x:hidden;
 }
 
 a,a:hover,a:active,a:focus {
+    text-transform: none;
 	display:inline-block;
 	text-decoration:none;
 	color: #616060;
@@ -122,9 +123,9 @@ nav.navbar.bootsnav {
     font-size: 24px;
     font-weight: 500;
     padding: 45px 0px;
-    text-transform:capitalize;
+    text-transform:none;
 }
-.navbar-header a.navbar-brand span{display: inline-block;color:#e99c2e;text-transform:capitalize;}
+.navbar-header a.navbar-brand span{display: inline-block;color:#e99c2e;text-transform:none;}
 
 .wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand,.wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand:hover,.wrap-sticky nav.navbar.bootsnav.sticked .navbar-header a.navbar-brand:focus {padding:30px 0px;}
 /*.navbar-brand*/
@@ -134,7 +135,7 @@ nav.navbar.bootsnav ul.nav > li > a {
     color: #616060;
     font-size: 16px;
     font-weight: 500;
-    text-transform: capitalize;
+    text-transform: none;
     -webkit-transition: 0.3s linear; 
     -moz-transition: 0.3s linear; 
     -ms-transition: 0.3s linear; 
@@ -150,7 +151,7 @@ nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle:after {
 }
 nav.navbar.bootsnav ul.nav > li.dropdown span {
     font-size: 8px;
-    margin-left: 15px;
+    margin-left: 14px;
 }
 .wrap-sticky nav.navbar.bootsnav.sticked ul.nav > li > a{padding:30px 25px;}
 /*.nav li*/
@@ -275,7 +276,7 @@ ul.cart-list > li.total {
     color: #fff;
     font-size: 12px;
     font-weight: 500;
-    text-transform: capitalize;
+    text-transform: none;
     border-radius: 3px;
 }
 /*.cart-list*/
